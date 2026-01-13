@@ -78,4 +78,6 @@ fi
 
 echo "✅ Done: $FINAL_PATH"
 
-read -p "Press ENTER to return to menu..."
+echo
+read -p "🔙 Press ENTER to return to menu..."
+return 0 2>/dev/null || exit 0
