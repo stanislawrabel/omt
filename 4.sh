@@ -1,4 +1,7 @@
 #!/bin/bash
+APP_NAME="OTA Multi Tools"
+APP_VERSION="1.0.0"
+APP_AUTHOR="Stano36"
 
 # 🎨 Colors 
 WHITE="\033[37m"
