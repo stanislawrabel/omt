@@ -77,3 +77,5 @@ else
 fi
 
 echo "✅ Done: $FINAL_PATH"
+
+read -p "Press ENTER to return to menu..."
