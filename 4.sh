@@ -133,4 +133,6 @@ while true; do
   read -rp "➡️ " C
   [[ "$C" == "0" ]] && break
 done  
-read -p "Press ENTER to return to menu..."
+echo
+read -p "🔙 Press ENTER to return to menu..."
+return 0 2>/dev/null || exit 0
