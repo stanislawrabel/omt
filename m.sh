@@ -30,16 +30,16 @@ while true; do
 
 
   clear
-  echo -e "${GREEN}+${RESET}=====================================${GREEN}+${RESET}"
-  echo -e "${GREEN}|${RESET}      OTA Multi Tools  v1.0.0           ${GREEN}|${RESET}"
+  echo -e "${GREEN}+=====================================+${RESET}"
+  echo -e "${GREEN}|${RESET}      OTA Multi Tools  v1.0.0        ${GREEN}|${RESET}"
   echo -e "${GREEN}|${RESET} ${YELLOW_BG}${BLACK}  realme   ${RESET}  ${GREEN_BG}${BLACK}  oppo  ${RESET}  ${RED_BG}${WHITE}  Oneplus  ${RESET}  ${GREEN}|${RESET}"
-  echo -e "${GREEN}+${RESET}=====================================${GREEN}+${RESET}"
-  echo -e "${GREEN}|${RESET}1) OTA FindeR                      ${GREEN}|${RESET}"
-  echo -e "${GREEN}|${RESET}2) Share OTA links                 ${GREEN}|${RESET}"
-  echo -e "${GREEN}|${RESET}3) DownloadeR                      ${GREEN}|${RESET}"
-  echo -e "${GREEN}|${RESET}4) Universal DownloadeR & Resolver  ${GREEN}|${RESET}"
-  echo -e "${GREEN}|${RESET}0) Exit                           ${GREEN}|${RESET}"
-  echo -e "${GREEN}+${RESET}--------------------------------------${GREEN}+${RESET}"
+  echo -e "${GREEN}+=====================================+${RESET}"
+  echo -e "${GREEN}|${RESET}1) OTA FindeR                        ${GREEN}|${RESET}"
+  echo -e "${GREEN}|${RESET}2) Share OTA links                   ${GREEN}|${RESET}"
+  echo -e "${GREEN}|${RESET}3) DownloadeR                        ${GREEN}|${RESET}"
+  echo -e "${GREEN}|${RESET}4) Universal DownloadeR & Resolver   ${GREEN}|${RESET}"
+  echo -e "${GREEN}|${RESET}0) Exit                              ${GREEN}|${RESET}"
+  echo -e "${GREEN}+-------------------------------------+${RESET}"
 
     read -p "Select option: " choice
 
