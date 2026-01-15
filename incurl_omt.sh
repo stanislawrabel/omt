@@ -43,5 +43,5 @@ exec bash "$target" "\$@"
 EOF
   chmod +x "$wrapper"
 done
-echo -e "\e[32m✅ Installation completed. Use commands: m\e[0m"
+echo -e "\e[32m✅ Installation completed. Use commands: m \e[0m"
 exit
