@@ -30,18 +30,11 @@ done
 
 chmod +x m.sh 1.sh 2.sh 3.sh 4.sh
 
-# Nahrádza celé bloky s aliasmi
-PREFIX=${PREFIX:-/data/data/com.termux/files/usr}
-mkdir -p "$PREFIX/bin"
-
-for name in m.sh; do
-  target="$HOME/${name}.sh"
-  wrapper="$PREFIX/bin/$name"
-  cat > "$wrapper" <<EOF
-#!/data/data/com.termux/files/usr/bin/bash
-exec bash "$target" "\$@"
-EOF
-  chmod +x "$wrapper"
-done
-echo -e "\e[32m✅ Installation completed. Use commands: m \e[0m"
+if ! grep -q "alias m=" ~/.bashrc; then
+    echo "alias m='bash ~/m.sh'" >> ~/.bashrc
+    echo -e "\e[32m✅ Alias 'm' has been added.\e[0m"
+fi
+source ~/.bashrc
+clear
 exit
+
