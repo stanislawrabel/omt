@@ -62,6 +62,9 @@ if [[ -z "$FINAL_URL" || ! "$FINAL_URL" =~ ^https?:// ]]; then
   exit 1
 fi
 
+read -p "Start download? (y/n): " yn
+[[ "$yn" != "y" ]] && return 0
+
 echo "📥 Downloading:"
 echo "$FINAL_URL"
 echo "➡️  Saving as: $FINAL_NAME"
@@ -70,7 +73,9 @@ echo "➡️  Saving as: $FINAL_NAME"
 TARGET_DIR="/storage/emulated/0/Download/DownloadeR"
 TARGET_NAME="${OTA}.zip"
 
-aria2c "$FINAL_URL" -d "$TARGET_DIR" -o "$TARGET_NAME"
+aria2c "$FINAL_URL" & -d "$TARGET_DIR" -o "$TARGET_NAME"
+echo "⬇️ Download started in background"
+read -p "🔙 Press ENTER to return to menu..."
 
 FINAL_PATH="$TARGET_DIR/$TARGET_NAME"
 
