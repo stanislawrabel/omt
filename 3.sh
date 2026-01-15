@@ -73,7 +73,7 @@ echo "➡️  Saving as: $FINAL_NAME"
 TARGET_DIR="/storage/emulated/0/Download/DownloadeR"
 TARGET_NAME="${OTA}.zip"
 
-aria2c "$FINAL_URL" & -d "$TARGET_DIR" -o "$TARGET_NAME"
+aria2c "$FINAL_URL"  -d "$TARGET_DIR" -o "$TARGET_NAME" &
 echo "⬇️ Download started in background"
 read -p "🔙 Press ENTER to return to menu..."
 
