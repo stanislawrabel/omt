@@ -73,9 +73,16 @@ echo "➡️  Saving as: $FINAL_NAME"
 TARGET_DIR="/storage/emulated/0/Download/DownloadeR"
 TARGET_NAME="${OTA}.zip"
 
-aria2c "$FINAL_URL"  -d "$TARGET_DIR" -o "$TARGET_NAME" &
-echo "⬇️ Download started in background"
-read -p "🔙 Press ENTER to return to menu..."
+
+aria2c \
+  --enable-rpc=true \
+  --rpc-listen-all=false \
+  --rpc-listen-port=6800 \
+  --summary-interval=1 \
+  "$FINAL_URL" \
+  -d "$TARGET_DIR" \
+  -o "$TARGET_NAME" \
+  >/dev/null 2>&1 &
 
 FINAL_PATH="$TARGET_DIR/$TARGET_NAME"
 
