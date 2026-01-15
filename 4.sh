@@ -2,7 +2,11 @@
 APP_NAME="OTA Multi Tools"
 APP_VERSION="1.0.0"
 APP_AUTHOR="Stano36"
-
+cleanup() {
+    echo
+    echo "🔙 Returning to menu..."
+}
+trap cleanup EXIT INT
 # 🎨 Colors 
 WHITE="\033[37m"
 PURPLE="\033[35m" 
