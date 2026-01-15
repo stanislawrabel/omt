@@ -24,17 +24,17 @@ pip3 install --upgrade requests pycryptodome git+https://github.com/R0rt1z2/real
 echo "📥 Downloading scripts and data files..."
 REPO="https://raw.githubusercontent.com/stanislawrabel/omt/main"
 
-for file in menu.sh 1.sh 2.sh 3.sh 4.sh models.txt devices.txt; do
+for file in m.sh 1.sh 2.sh 3.sh 4.sh models.txt devices.txt; do
     curl -sSL "$REPO/$file" -o "$file"
 done
 
-chmod +x menu.sh 1.sh 2.sh 3.sh 4.sh
+chmod +x m.sh 1.sh 2.sh 3.sh 4.sh
 
 # Nahrádza celé bloky s aliasmi
 PREFIX=${PREFIX:-/data/data/com.termux/files/usr}
 mkdir -p "$PREFIX/bin"
 
-for name in menu.sh 1 2 3 4; do
+for name in m.sh; do
   target="$HOME/${name}.sh"
   wrapper="$PREFIX/bin/$name"
   cat > "$wrapper" <<EOF
@@ -43,5 +43,5 @@ exec bash "$target" "\$@"
 EOF
   chmod +x "$wrapper"
 done
-echo -e "\e[32m✅ Installation completed. Use commands: menu \e[0m"
+echo -e "\e[32m✅ Installation completed. Use commands: m\e[0m"
 exit
