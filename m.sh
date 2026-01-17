@@ -25,7 +25,7 @@ echo -e "${GREEN}+=====================================+${RESET}"
 
 BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-while true; do
+
 start_downloader() {
   if tmux has-session -t downloader 2>/dev/null; then
     echo "⚠️ DownloadeR already running – attaching..."
