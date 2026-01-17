@@ -25,7 +25,6 @@ echo -e "${GREEN}+=====================================+${RESET}"
 
 BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-
 start_downloader() {
   if tmux has-session -t downloader 2>/dev/null; then
     echo "⚠️ DownloadeR already running – attaching..."
@@ -34,9 +33,11 @@ start_downloader() {
   else
     echo "📥 Starting DownloadeR in new session..."
     sleep 1
-    tmux new-session -s downloader "bash 3.sh"
+    tmux new-session -s downloader "bash 3.sh; exec bash"
   fi
 }
+
+
 
 
 
@@ -61,4 +62,5 @@ start_downloader() {
   4) bash 4.sh ;;
   0) exit 0 ;;
 esac
-
+done
+read -p "Press ENTER to return to menu..."
