@@ -29,12 +29,5 @@ for file in m.sh 1.sh 2.sh 3.sh 4.sh models.txt devices.txt; do
 done
 
 chmod +x m.sh 1.sh 2.sh 3.sh 4.sh
-
-if ! grep -q "alias m=" ~/.bashrc; then
-    echo "alias m='bash ~/m.sh'" >> ~/.bashrc
-    echo -e "\e[32m✅ Alias 'm' has been added.\e[0m"
-fi
-source ~/.bashrc
-clear
-exit
-
+chmod +x ~/m.sh
+ln -sf ~/m.sh $PREFIX/bin/m
