@@ -26,6 +26,17 @@ echo -e "${GREEN}+=====================================+${RESET}"
 BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 while true; do
+start_downloader() {
+  if tmux has-session -t downloader 2>/dev/null; then
+    echo "⚠️ DownloadeR already running – attaching..."
+    sleep 1
+    tmux attach -t downloader
+  else
+    echo "📥 Starting DownloadeR in new session..."
+    sleep 1
+    tmux new-session -s downloader "bash 3.sh"
+  fi
+}
 
 
 
@@ -43,31 +54,11 @@ while true; do
 
     read -p "Select option: " choice
 
-  case "$choice" in
-    1)
-      bash "$BASE_DIR/1.sh"
-      read -p "Press ENTER..."
-      ;;
-    2)
-      bash "$BASE_DIR/2.sh"
-      read -p "Press ENTER..."
-      ;;
-    3)
-      echo "📥 Starting DownloadeR in new session..."
-    tmux new-session -d -s downloader "bash 3.sh"
-    tmux attach -t downloader
-    ;;
-    4)
-      bash "$BASE_DIR/4.sh"
-      read -p "Press ENTER..."
-      ;;
-    0)
-      exit 0
-      ;;
-    *)
-      echo "❌ Invalid option"
-      sleep 1
-      ;;
-  esac
-done
+ case "$choice" in
+  1) bash 1.sh ;;
+  2) bash 2.sh ;;
+  3) start_downloader ;;
+  4) bash 4.sh ;;
+  0) exit 0 ;;
+esac
 
