@@ -56,6 +56,7 @@ while true; do
       echo "📥 Starting DownloadeR in new session..."
     tmux new-session -d -s downloader "bash 3.sh"
     tmux attach -t downloader
+    ;;
     4)
       bash "$BASE_DIR/4.sh"
       read -p "Press ENTER..."
