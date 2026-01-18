@@ -2,20 +2,21 @@
 
 while true; do
   clear
-  echo "+==============================+"
-  echo "|     OTA Multi Tools v1.0     |"
-  echo "+==============================+"
-  echo "1) OTA FindeR"
+  echo "OTA Multi Tools"
+  echo
+  echo "1) OTA Finder"
   echo "2) Share OTA links"
-  echo "3) DownloadeR"
+  echo "3) Downloader"
   echo "0) Exit"
   echo
+
   read -r -p "Select: " c
 
   case "$c" in
-    1) tmux new-window -n Finder "bash 1.sh" ;;
-    2) tmux new-window -n Share  "bash 2.sh" ;;
-    3) tmux new-window -n Download "bash 3.sh" ;;
-    0) tmux kill-session -t ota; exit ;;
+    1) echo "Starting Finder…" ;;
+    2) echo "Starting Share…" ;;
+    3) echo "Starting Downloader…" ;;
+    0) echo "Bye"; exit 0 ;;
+    *) echo "Invalid option"; sleep 1 ;;
   esac
 done
