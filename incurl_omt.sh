@@ -25,10 +25,10 @@ pip3 install --upgrade requests pycryptodome git+https://github.com/R0rt1z2/real
 echo "📥 Downloading scripts and data files..."
 REPO="https://raw.githubusercontent.com/stanislawrabel/omt/main"
 
-for file in m.sh 1.sh 2.sh 3.sh 4.sh models.txt devices.txt; do
+for file in o.sh m.sh 1.sh 2.sh 3.sh 4.sh models.txt devices.txt; do
     curl -sSL "$REPO/$file" -o "$file"
 done
 
-chmod +x m.sh 1.sh 2.sh 3.sh 4.sh
-chmod +x ~/m.sh
-ln -sf ~/m.sh $PREFIX/bin/m
+chmod +x o.sh m.sh 1.sh 2.sh 3.sh 4.sh
+chmod +x ~/o.sh
+ln -sf ~/o.sh $PREFIX/bin/o
