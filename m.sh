@@ -10,7 +10,7 @@ while true; do
   echo "3) DownloadeR"
   echo "0) Exit"
   echo
-  read -p "Select: " c
+  read -r -p "Select: " c
 
   case "$c" in
     1) tmux new-window -n Finder "bash 1.sh" ;;
