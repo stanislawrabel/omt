@@ -26,9 +26,17 @@ echo "📥 Downloading scripts and data files..."
 REPO="https://raw.githubusercontent.com/stanislawrabel/omt/main"
 
 for file in o.sh m.sh 1.sh 2.sh 3.sh 4.sh models.txt devices.txt; do
-    curl -sSL "$REPO/$file" -o "$file"
+    echo "➡️  $file"
+    http_code=$(curl -L -w "%{http_code}" -o "$file" "$REPO/$file")
+
+    if [[ "$http_code" != "200" ]]; then
+        echo "❌ Failed to download $file (HTTP $http_code)"
+        rm -f "$file"
+        exit 1
+    fi
 done
 
+echo "✅ All files downloaded successfully"
 chmod +x o.sh m.sh 1.sh 2.sh 3.sh 4.sh
 chmod +x ~/o.sh
 ln -sf ~/o.sh $PREFIX/bin/o
