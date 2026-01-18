@@ -42,3 +42,8 @@ chmod +x o.sh m.sh 1.sh 2.sh 3.sh 4.sh
 # ln -sf ~/o.sh $PREF
 chmod +x m.sh
 mv m.sh ~/bin/m
+export PATH="$HOME/bin:$PATH"
+source ~/.bashrc
+
+echo "alias m='bash ~/m.sh'" >> ~/.bashrc
+source ~/.bashrc
