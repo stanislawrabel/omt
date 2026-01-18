@@ -1,20 +1,20 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 GREEN="\033[32m"
-YELLOW="\033[33m"
 RESET="\033[0m"
 
 SESSION="ota"
 APP_NAME="OTA Multi Tools"
 APP_VERSION="1.0.0"
 
-# vytvor session
+# create session + menu window
 if ! tmux has-session -t "$SESSION" 2>/dev/null; then
-    tmux new-session -d -s "$SESSION"
+    tmux new-session -d -s "$SESSION" -n Menu
 fi
 
-# ak nie sme v tmuxe → pripoj sa
+# attach only once
 if [[ -z "$TMUX" ]]; then
+    tmux select-window -t "$SESSION:Menu"
     tmux attach -t "$SESSION"
     exit
 fi
@@ -33,7 +33,7 @@ while true; do
 
     case "$c" in
         1) tmux new-window -t "$SESSION" -n Finder "bash 1.sh" ;;
-        2) tmux new-window -t "$SESSION" -n Share  "bash 2.sh" ;;
+        2) tmux new-window -t "$SESSION" -n Share "bash 2.sh" ;;
         3) tmux new-window -t "$SESSION" -n Download "bash 3.sh" ;;
         0) tmux kill-session -t "$SESSION"; exit ;;
     esac
