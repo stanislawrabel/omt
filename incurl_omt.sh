@@ -37,7 +37,8 @@ for file in o.sh m.sh 1.sh 2.sh 3.sh 4.sh models.txt devices.txt; do
 done
 
 echo "✅ All files downloaded successfully"
-chmod +x o.sh m.sh 1.sh 2.sh 3.sh 4.sh chmod +x ~/o.sh
+chmod +x o.sh m.sh 1.sh 2.sh 3.sh 4.sh 
+chmod +x ~/o.sh
 ln -sf ~/o.sh $PREF
 chmod +x m.sh
 # mv m.sh ~/bin/m
