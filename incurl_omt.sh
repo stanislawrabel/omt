@@ -1,5 +1,5 @@
-q#!/bin/bash
-set -e
+#!/data/data/com.termux/files/usr/bin/bash
+set +e
 
 # 🛠 Automatický mód
 export DEBIAN_FRONTEND=noninteractive
