@@ -23,8 +23,7 @@ while true; do
     1) tmux new-window -t "$SESSION" -n Finder "bash 1.sh; read -p 'Press ENTER to close...'" ;;
     2) tmux new-window -t "$SESSION" -n Share "bash 2.sh; read -p 'Press ENTER to close...'" ;;
     3) tmux new-window -t "$SESSION" -n Download "bash 3.sh; read -p 'Press ENTER to close...'" ;;
-    0)
-       tmux kill-session -t "$SESSION"
+    0) tmux kill-session -t "$SESSION"
        exit
        ;;
   esac
