@@ -15,13 +15,13 @@ while true; do
   clear
 
   echo -e "${GREEN}╔══════════════════════════════════╗${RESET}"
-  echo -e "${GREEN}║${RESET}   ${CYAN}${APP_NAME}${RESET}  ${YELLOW}v${APP_VERSION}${RESET}   ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET}      ${CYAN}${APP_NAME}${RESET}  ${YELLOW}v${APP_VERSION}${RESET}      ${GREEN}║${RESET}"
   echo -e "${GREEN}╠══════════════════════════════════╣${RESET}"
-  echo -e "${GREEN}║${RESET} 1) OTA FindeR                     ${GREEN}║${RESET}"
-  echo -e "${GREEN}║${RESET} 2) Share OTA links                ${GREEN}║${RESET}"
-  echo -e "${GREEN}║${RESET} 3) DownloadeR                     ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} 1) OTA FindeR                    ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} 2) Share OTA links               ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} 3) DownloadeR                    ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET}                                  ${GREEN}║${RESET}"
-  echo -e "${GREEN}║${RESET} 0) Exit                           ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} 0) Exit                          ${GREEN}║${RESET}"
   echo -e "${GREEN}╚══════════════════════════════════╝${RESET}"
 
   echo
