@@ -10,6 +10,19 @@ cleanup() {
     echo "🔙 Returning to menu..."
 }
 trap cleanup EXIT INT
+STATUS_FILE="$HOME/.ota_download.status"
+
+aria2c \
+  --summary-interval=1 \
+  --file-allocation=trunc \
+  "$FINAL_URL" \
+  -d "$TARGET_DIR" \
+  -o "$TARGET_NAME" \
+  --log="$STATUS_FILE" \
+  --log-level=notice \
+  &
+
+echo $! > "$HOME/.ota_download.pid"
 
 COMMON_FILE="/storage/emulated/0/Download/DownloadeR/ota_common.txt"
 
