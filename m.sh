@@ -1,11 +1,20 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 # ====== COLORS ======
-GREEN="\033[32m"
+WHITE="\033[37m"
 CYAN="\033[36m"
+PURPLE="\033[35m" 
 YELLOW="\033[33m"
+BLUE="\033[34m"
 RED="\033[31m"
+BLACK="\033[30m"
+WHITE="\033[37m"
+GREEN="\033[32m"
+YELLOW_BG="\033[43m"
+GREEN_BG="\033[42m"
+RED_BG="\033[41m"
 RESET="\033[0m"
+
 
 APP_NAME="OTA Multi Tools"
 APP_VERSION="1.0.0"
@@ -15,7 +24,9 @@ while true; do
   clear
 
   echo -e "${GREEN}╔══════════════════════════════════╗${RESET}"
-  echo -e "${GREEN}║${RESET}      ${CYAN}${APP_NAME}${RESET}  ${YELLOW}v${APP_VERSION}${RESET}      ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET}      ${CYAN}${APP_NAME}${RESET}  ${YELLOW}v${APP_VERSION}${RESET}     ${GREEN}║${RESET}"
+  echo -e "${GREEN}╠══════════════════════════════════╣${RESET}"
+  echo -e "${GREEN}|${RESET} ${YELLOW_BG}${BLACK}  realme   ${RESET} ${GREEN_BG}${BLACK}   oppo   ${RESET} ${RED_BG}${WHITE}  OnePlus   ${RESET} ${GREEN}|${RESET}"
   echo -e "${GREEN}╠══════════════════════════════════╣${RESET}"
   echo -e "${GREEN}║${RESET} 1) OTA FindeR                    ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 2) Share OTA links               ${GREEN}║${RESET}"
