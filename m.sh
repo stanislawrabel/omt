@@ -31,7 +31,7 @@ while true; do
   echo -e "${GREEN}║${RESET} 1) OTA FindeR                      ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 2) Share OTA links                 ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 3) DownloadeR                      ${GREEN}║${RESET}"
-  echo -e "${GREEN}║${RESET}                                    ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} 4) Universal DownloadeR & Resoler  ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 0) Exit                            ${GREEN}║${RESET}"
   echo -e "${GREEN}╚════════════════════════════════════╝${RESET}"
 
@@ -42,6 +42,7 @@ while true; do
     1) bash 1.sh ;;
     2) bash 2.sh ;;
     3) bash 3.sh ;;
+    4) bash 4.sh ;;
     0) echo "Bye 👋"; exit 0 ;;
     *) echo -e "${RED}Invalid option${RESET}"; sleep 1 ;;
   esac
