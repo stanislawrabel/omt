@@ -15,10 +15,28 @@ GREEN_BG="\033[42m"
 RED_BG="\033[41m"
 RESET="\033[0m"
 
+get_download_percent() {
+  [[ ! -f "$HOME/.ota_download.status" ]] && return
+
+  grep -oP '\(\K\d+(?=%\))' "$HOME/.ota_download.status" | tail -1
+}
 
 APP_NAME="OTA Multi Tools"
 APP_VERSION="1.0.0"
 APP_AUTHOR="Stano36"
+
+PERCENT=$(get_download_percent)
+
+if [[ -n "$PERCENT" ]]; then
+  echo -e "📥 Downloading: ${GREEN}${PERCENT}%${RESET}"
+else
+  if [[ -f "$HOME/.ota_download.pid" ]]; then
+    if ! kill -0 "$(cat ~/.ota_download.pid)" 2>/dev/null; then
+      echo -e "✅ Download finished"
+      rm -f ~/.ota_download.pid ~/.ota_download.status
+    fi
+  fi
+fi
 
 while true; do
   clear
