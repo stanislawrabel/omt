@@ -5,11 +5,7 @@ echo "=== DownloadeR ==="
 APP_NAME="OTA Multi Tools"
 APP_VERSION="1.0.0"
 APP_AUTHOR="Stano36"
-cleanup() {
-    echo
-    echo "🔙 Returning to menu..."
-}
-trap cleanup EXIT INT
+
 STATUS_FILE="$HOME/.ota_download.status"
 
 aria2c \
@@ -112,3 +108,8 @@ fi
 echo "✅ Done: $FINAL_PATH"
 echo
 read -p "Press ENTER to return to menu..."
+cleanup() {
+    echo
+    echo "🔙 Returning to menu..."
+}
+trap cleanup EXIT INT
