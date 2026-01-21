@@ -1,10 +1,15 @@
 #!/data/data/com.termux/files/usr/bin/bash
 clear
-echo "=== DownloadeR ==="
+echo "============= DownloadeR ============="
 
 APP_NAME="OTA Multi Tools"
 APP_VERSION="1.0.0"
 APP_AUTHOR="Stano36"
+
+[[ "${BASH_SOURCE[0]}" != "$0" ]] || {
+  echo "❌ Do not run directly. Use menu."
+  exit 1
+}
 
 COMMON_FILE="/storage/emulated/0/Download/DownloadeR/ota_common.txt"
 
