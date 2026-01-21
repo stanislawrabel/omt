@@ -26,7 +26,6 @@ RESET="\033[0m"
 
 
 
-
 # === 🧠 CHECK ARIA2 ===
 if ! command -v aria2c &>/dev/null; then
   echo -e "${RED}❌ aria2c not installed .${RESET}"
@@ -133,6 +132,10 @@ while true; do
   else
     echo -e "${RED}❌ Download failed${RESET}"
   fi
-  
-echo
-read -p "🔙 Press ENTER to return to menu..."
+
+  echo
+  echo "1️⃣ Again"
+  echo "0️⃣ Exit"
+  read -rp "➡️ " C
+  [[ "$C" == "0" ]] && break
+done  
