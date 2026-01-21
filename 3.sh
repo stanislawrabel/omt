@@ -18,7 +18,7 @@ aria2c \
   --log-level=notice \
   &
 
-echo $! > "$HOME/.ota_download.pid"
+echo $!     > "$HOME/.ota_download.pid"
 
 COMMON_FILE="/storage/emulated/0/Download/DownloadeR/ota_common.txt"
 
@@ -108,8 +108,4 @@ fi
 echo "✅ Done: $FINAL_PATH"
 echo
 read -p "Press ENTER to return to menu..."
-cleanup() {
-    echo
-    echo "🔙 Returning to menu..."
-}
-trap cleanup EXIT INT
+0
