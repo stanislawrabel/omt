@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 clear
-echo "=== DownloadeR & Resolver ==="
+echo "========= DownloadeR & Resolver ========"
 
 APP_NAME="OTA Multi Tools"
 APP_VERSION="1.0.0"
@@ -136,3 +136,4 @@ while true; do
   
 echo
 read -p "🔙 Press ENTER to return to menu..."
+return 0
