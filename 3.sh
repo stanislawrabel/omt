@@ -60,39 +60,48 @@ if [[ -z "$FINAL_URL" || ! "$FINAL_URL" =~ ^https?:// ]]; then
   echo "❌ Invalid FINAL_URL"
   exit 1
 fi
-
 read -p "Start download? (y/n): " yn
-[[ "$yn" != "y" ]] && return 0
+[[ "$yn" != "y" ]] && exit 0
 
-echo "📥 Downloading:"
-echo "$FINAL_URL"
-echo "➡️  Saving as: $FINAL_NAME"
+# resolve downloadCheck
+if [[ "$FINAL_URL" == *"downloadCheck"* ]]; then
+  echo "🔄 Resolving downloadCheck…"
+  FINAL_URL=$(resolve_zip "$FINAL_URL")
+fi
 
+# fix old manual zip
+FINAL_URL=$(fix_old_zip "$FINAL_URL")
+
+if [[ -z "$FINAL_URL" || ! "$FINAL_URL" =~ ^https?:// ]]; then
+  echo "❌ Invalid FINAL_URL"
+  exit 1
+fi
 
 TARGET_DIR="/storage/emulated/0/Download/DownloadeR"
 TARGET_NAME="${OTA}.zip"
-
-
-aria2c \
-  --enable-rpc=true \
-  --rpc-listen-all=false \
-  --rpc-listen-port=6800 \
-  --summary-interval=1 \
-  "$FINAL_URL" \
-  -d "$TARGET_DIR" \
-  -o "$TARGET_NAME" \
-  >/dev/null 2>&1 &
-
 FINAL_PATH="$TARGET_DIR/$TARGET_NAME"
 
+mkdir -p "$TARGET_DIR"
+
+echo
+echo "📥 Downloading:"
+echo "$FINAL_URL"
+echo
+
+aria2c \
+  --summary-interval=1 \
+  -d "$TARGET_DIR" \
+  -o "$TARGET_NAME" \
+  "$FINAL_URL"
+
 if [[ -n "$MD5" && -f "$FINAL_PATH" ]]; then
+  echo
   echo "🔐 Verifying MD5..."
   echo "$MD5  $FINAL_PATH" | md5sum -c -
 else
   echo "⚠️ MD5 skipped (missing hash or file)"
 fi
 
-echo "✅ Done: $FINAL_PATH"
 echo
+echo "✅ Done: $FINAL_PATH"
 read -p "Press ENTER to return to menu..."
-
