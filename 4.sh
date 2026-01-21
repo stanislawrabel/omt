@@ -136,4 +136,3 @@ while true; do
   
 echo
 read -p "🔙 Press ENTER to return to menu..."
-return 0
