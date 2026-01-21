@@ -133,13 +133,6 @@ while true; do
   else
     echo -e "${RED}❌ Download failed${RESET}"
   fi
-
-  echo
-  echo "1️⃣ Again"
-  echo "0️⃣ Exit"
-  read -rp "➡️ " C
-  [[ "$C" == "0" ]] && break
-done  
+  
 echo
 read -p "🔙 Press ENTER to return to menu..."
-return 0 2>/dev/null || exit 0
