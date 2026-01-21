@@ -233,11 +233,11 @@ fi
 # 📌 Výber prefixu a modelu
 clear
 
-echo -e "${GREEN}+=====================================+${RESET}"
-echo -e "${GREEN}|==${RESET} ${GREEN}   OTA FindeR${RESET} ${RED}  by${RESET} ${BLUE}Stano36${RESET}   ${GREEN}   ==|${RESET}"
-echo -e "${GREEN}+=====================================+${RESET}"
-echo -e "${GREEN}|${RESET} ${YELLOW_BG}${BLACK}  realme   ${RESET} ${GREEN_BG}${BLACK}   oppo   ${RESET} ${RED_BG}${WHITE}  OnePlus   ${RESET} ${GREEN}|${RESET}"
-echo -e "${GREEN}+=====================================+${RESET}"
+echo -e "${GREEN}╔═══════════════════════════════╗${RESET}"
+echo -e "${GREEN}║  ${RESET} ${GREEN}   OTA FindeR${RESET} ${RED}  by${RESET} ${BLUE}Stano36${RESET}   ${GREEN}     ║${RESET}"
+echo -e "${GREEN}╠═══════════════════════════════╣${RESET}"
+echo -e "${GREEN}║${RESET} ${YELLOW_BG}${BLACK}  realme   ${RESET} ${GREEN_BG}${BLACK}   oppo   ${RESET} ${RED_BG}${WHITE}  OnePlus   ${RESET} ${GREEN}║${RESET}"
+echo -e "${GREEN}╠═══════════════════════════════╣${RESET}"
 printf "| %-5s | %-6s | %-18s |\n" "Mani." "R code" "Region"
 echo -e "+-------------------------------------+"
 
@@ -251,9 +251,9 @@ printf "|  ${YELLOW}%-4s${RESET} | %-6s | %-18s |\n" "$key" "$region_code" "$reg
 done
 
 
-echo -e "${GREEN}+=====================================+${RESET}"
-echo -e "${GREEN}|==${RESET}" "OTA version :  ${BLUE}A${RESET} ,  ${BLUE}C${RESET} ,  ${BLUE}F${RESET} ,  ${BLUE}H${RESET}"      "${GREEN}==|${RESET}"
-echo -e "${GREEN}+=====================================+${RESET}"
+echo -e "${GREEN}╠════════════════════════════════════╣${RESET}"
+echo -e "${GREEN}║  ${RESET}" "OTA version :  ${BLUE}A${RESET} ,  ${BLUE}C${RESET} ,  ${BLUE}F${RESET} ,  ${BLUE}H${RESET}"      "${GREEN}  ║${RESET}"
+echo -e "${GREEN}╠════════════════════════════════════╣${RESET}"
 # Zoznam prefixov
 echo -e "Choose model:
 ${YELLOW}1) RMX${RESET}, ${GREEN}2) CPH${RESET}, ${BLUE}3) Custom${RESET}, ${PURPLE}4) Selected${RESET}" 
@@ -265,7 +265,7 @@ if [[ "$choice" == "4" ]]; then
     fi
 
     echo -e "\n📱 ${PURPLE}Selected device list :${RESET}"
-  echo -e "${GREEN}+======================================+${RESET}"
+  echo -e "${GREEN}╠═══════════════════════════════╣${RESET}"
   printf "| %-3s | %-30s |\n" "No." "Model" 
     echo -e "+-----+--------------------------------+"
 
@@ -288,7 +288,7 @@ printf "| ${RED}%-3s${RESET} | ${GREEN}%-30s${RESET} |\n" "$index" "$device_name
     done
 
     
-  echo -e "${GREEN}+======================================+${RESET}"
+  echo -e "${GREEN}╚══════════════════════════╝${RESET}"
 
   read -p "🔢 Select device number: " selected
 
