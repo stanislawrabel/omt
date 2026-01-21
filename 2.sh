@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 clear
-echo "=== Share OTA links ==="
+echo "============= Share OTA links ============="
 
 APP_NAME="OTA Multi Tools"
 APP_VERSION="1.0.0"
@@ -344,3 +344,4 @@ while true; do
     esac
 done
 read -p "Press ENTER to return to menu..."
+return 0
