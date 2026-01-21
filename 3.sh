@@ -85,3 +85,4 @@ else
 fi
 
 echo "✅ Done: $FINAL_PATH"
+return 0
