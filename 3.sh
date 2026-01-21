@@ -6,19 +6,6 @@ APP_NAME="OTA Multi Tools"
 APP_VERSION="1.0.0"
 APP_AUTHOR="Stano36"
 
-STATUS_FILE="$HOME/.ota_download.status"
-
-aria2c \
-  --summary-interval=1 \
-  --file-allocation=trunc \
-  "$FINAL_URL" \
-  -d "$TARGET_DIR" \
-  -o "$TARGET_NAME" \
-  --log="$STATUS_FILE" \
-  --log-level=notice \
-  &
-
-echo $!     > "$HOME/.ota_download.pid"
 
 COMMON_FILE="/storage/emulated/0/Download/DownloadeR/ota_common.txt"
 
@@ -108,4 +95,4 @@ fi
 echo "✅ Done: $FINAL_PATH"
 echo
 read -p "Press ENTER to return to menu..."
-0
+
