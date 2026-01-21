@@ -233,13 +233,13 @@ fi
 # 📌 Výber prefixu a modelu
 clear
 
-echo -e "${GREEN}╔══════════════════════════════════════╗${RESET}"
+echo -e "${GREEN}╔═════════════════════════════════════╗${RESET}"
 echo -e "${GREEN}║  ${RESET} ${GREEN}   OTA FindeR${RESET} ${RED}  by${RESET} ${BLUE}Stano36${RESET}   ${GREEN}     ║${RESET}"
-echo -e "${GREEN}╠══════════════════════════════════════╣${RESET}"
+echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"
 echo -e "${GREEN}║${RESET} ${YELLOW_BG}${BLACK}  realme   ${RESET} ${GREEN_BG}${BLACK}   oppo   ${RESET} ${RED_BG}${WHITE}  OnePlus   ${RESET} ${GREEN}║${RESET}"
-echo -e "${GREEN}╠══════════════════════════════════════╣${RESET}"
-printf "║ %-5s | %-6s | %-18s ║\n" "Mani." "R code" "Region"
-echo -e "+-------------------------------------+"
+echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"
+printf  "${GREEN}║ %-5s | %-6s | %-18s ${GREEN}║${RESET}\n" "Mani." "R code" "Region"
+echo -e "${GREEN}╠════════════════════════════════════╣${RESET}"
 
 # Výpis tabuľky
 for key in "${!REGIONS[@]}"; do
@@ -247,7 +247,7 @@ for key in "${!REGIONS[@]}"; do
     region_code=${region_data[0]}
     region_name=${region_data[1]}
 
-printf "║  ${YELLOW}%-4s${RESET} | %-6s | %-18s ║\n" "$key" "$region_code" "$region_name"
+printf "${GREEN}║${RESET}  ${YELLOW}%-4s${RESET} | %-6s | %-18s ${GREEN}║${RESET}\n" "$key" "$region_code" "$region_name"
 done
 
 
