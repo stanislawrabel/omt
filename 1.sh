@@ -233,12 +233,12 @@ fi
 # 📌 Výber prefixu a modelu
 clear
 
-echo -e "${GREEN}╔═══════════════════════════════╗${RESET}"
+echo -e "${GREEN}╔══════════════════════════════════════╗${RESET}"
 echo -e "${GREEN}║  ${RESET} ${GREEN}   OTA FindeR${RESET} ${RED}  by${RESET} ${BLUE}Stano36${RESET}   ${GREEN}     ║${RESET}"
-echo -e "${GREEN}╠═══════════════════════════════╣${RESET}"
+echo -e "${GREEN}╠══════════════════════════════════════╣${RESET}"
 echo -e "${GREEN}║${RESET} ${YELLOW_BG}${BLACK}  realme   ${RESET} ${GREEN_BG}${BLACK}   oppo   ${RESET} ${RED_BG}${WHITE}  OnePlus   ${RESET} ${GREEN}║${RESET}"
-echo -e "${GREEN}╠═══════════════════════════════╣${RESET}"
-printf "| %-5s | %-6s | %-18s |\n" "Mani." "R code" "Region"
+echo -e "${GREEN}╠══════════════════════════════════════╣${RESET}"
+printf "║ %-5s | %-6s | %-18s ║\n" "Mani." "R code" "Region"
 echo -e "+-------------------------------------+"
 
 # Výpis tabuľky
@@ -247,13 +247,13 @@ for key in "${!REGIONS[@]}"; do
     region_code=${region_data[0]}
     region_name=${region_data[1]}
 
-printf "|  ${YELLOW}%-4s${RESET} | %-6s | %-18s |\n" "$key" "$region_code" "$region_name"
+printf "║  ${YELLOW}%-4s${RESET} | %-6s | %-18s ║\n" "$key" "$region_code" "$region_name"
 done
 
 
-echo -e "${GREEN}╠════════════════════════════════════╣${RESET}"
+echo -e "${GREEN}╠══════════════════════════════════════╣${RESET}"
 echo -e "${GREEN}║  ${RESET}" "OTA version :  ${BLUE}A${RESET} ,  ${BLUE}C${RESET} ,  ${BLUE}F${RESET} ,  ${BLUE}H${RESET}"      "${GREEN}  ║${RESET}"
-echo -e "${GREEN}╠════════════════════════════════════╣${RESET}"
+echo -e "${GREEN}╚══════════════════════════════════════╝${RESET}"
 # Zoznam prefixov
 echo -e "Choose model:
 ${YELLOW}1) RMX${RESET}, ${GREEN}2) CPH${RESET}, ${BLUE}3) Custom${RESET}, ${PURPLE}4) Selected${RESET}" 
@@ -265,8 +265,8 @@ if [[ "$choice" == "4" ]]; then
     fi
 
     echo -e "\n📱 ${PURPLE}Selected device list :${RESET}"
-  echo -e "${GREEN}╠═══════════════════════════════╣${RESET}"
-  printf "| %-3s | %-30s |\n" "No." "Model" 
+  echo -e "${GREEN}╔══════════════════════════════════════╗${RESET}"
+  printf "║ %-3s | %-30s ║\n" "No." "Model" 
     echo -e "+-----+--------------------------------+"
 
     mapfile -t lines < devices.txt
@@ -284,11 +284,11 @@ else
 fi
 device_name="${MODEL_NAMES[$clean_model]:-Unknown}"
 
-printf "| ${RED}%-3s${RESET} | ${GREEN}%-30s${RESET} |\n" "$index" "$device_name" 
+printf "║ ${RED}%-3s${RESET} | ${GREEN}%-30s${RESET} ║\n" "$index" "$device_name" 
     done
 
     
-  echo -e "${GREEN}╚══════════════════════════╝${RESET}"
+  echo -e "${GREEN}╚═════════════════════════════════╝${RESET}"
 
   read -p "🔢 Select device number: " selected
 
