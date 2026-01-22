@@ -239,7 +239,7 @@ echo -e "${GREEN}╠════════════════════
 echo -e "${GREEN}║${RESET} ${YELLOW_BG}${BLACK}  realme   ${RESET} ${GREEN_BG}${BLACK}   oppo   ${RESET} ${RED_BG}${WHITE}  OnePlus   ${RESET} ${GREEN}║${RESET}"
 echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"
 printf  "${GREEN}║ %-5s | %-6s | %-18s ${GREEN}║${RESET}\n" "Mani." "R code" "Region"
-echo -e "${GREEN}╠════════════════════════════════════╣${RESET}"
+echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"
 
 # Výpis tabuľky
 for key in "${!REGIONS[@]}"; do
@@ -251,9 +251,9 @@ printf "${GREEN}║${RESET}  ${YELLOW}%-4s${RESET} | %-6s | %-18s ${GREEN}║${R
 done
 
 
-echo -e "${GREEN}╠══════════════════════════════════════╣${RESET}"
+echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"
 echo -e "${GREEN}║  ${RESET}" "OTA version :  ${BLUE}A${RESET} ,  ${BLUE}C${RESET} ,  ${BLUE}F${RESET} ,  ${BLUE}H${RESET}"      "${GREEN}  ║${RESET}"
-echo -e "${GREEN}╚══════════════════════════════════════╝${RESET}"
+echo -e "${GREEN}╚═════════════════════════════════════╝${RESET}"
 # Zoznam prefixov
 echo -e "Choose model:
 ${YELLOW}1) RMX${RESET}, ${GREEN}2) CPH${RESET}, ${BLUE}3) Custom${RESET}, ${PURPLE}4) Selected${RESET}" 
@@ -266,8 +266,8 @@ if [[ "$choice" == "4" ]]; then
 
     echo -e "\n📱 ${PURPLE}Selected device list :${RESET}"
   echo -e "${GREEN}╔══════════════════════════════════════╗${RESET}"
-  printf "║ %-3s | %-30s ║\n" "No." "Model" 
-    echo -e "+-----+--------------------------------+"
+  printf "${GREEN}║${RESET} %-3s | %-30s ${GREEN}║${RESET}\n" "No."      "Model" 
+    echo -e "${GREEN}╠════════════════════════════════╣${RESET}"
 
     mapfile -t lines < devices.txt
         total=${#lines[@]}  # aby podmienka pre rozsah fungovala správne
@@ -284,11 +284,11 @@ else
 fi
 device_name="${MODEL_NAMES[$clean_model]:-Unknown}"
 
-printf "║ ${RED}%-3s${RESET} | ${GREEN}%-30s${RESET} ║\n" "$index" "$device_name" 
+printf "${GREEN}║${RESET} ${RED}%-3s${RESET} | ${GREEN}%-30s${RESET} ${GREEN}║${RESET}\n" "$index" "$device_name" 
     done
 
     
-  echo -e "${GREEN}╚═════════════════════════════════╝${RESET}"
+  echo -e "${GREEN}╚═══════════════════════════════════╝${RESET}"
 
   read -p "🔢 Select device number: " selected
 
