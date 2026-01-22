@@ -238,7 +238,7 @@ echo -e "${GREEN}║  ${RESET} ${GREEN}   OTA FindeR${RESET} ${RED}  by${RESET} 
 echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"
 echo -e "${GREEN}║${RESET} ${YELLOW_BG}${BLACK}  realme   ${RESET} ${GREEN_BG}${BLACK}   oppo   ${RESET} ${RED_BG}${WHITE}  OnePlus   ${RESET} ${GREEN}║${RESET}"
 echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"
-printf  "${GREEN}║ %-5s | %-6s | %-18s ${GREEN}║${RESET}\n" "Mani." "R code" "Region"
+printf  "${GREEN}║${RESET} %-5s | %-6s | %-18s ${GREEN}║${RESET}\n" "Mani." "R code" "Region"
 echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"
 
 # Výpis tabuľky
@@ -266,8 +266,8 @@ if [[ "$choice" == "4" ]]; then
 
     echo -e "\n📱 ${PURPLE}Selected device list :${RESET}"
   echo -e "${GREEN}╔══════════════════════════════════════╗${RESET}"
-  printf "${GREEN}║${RESET} %-3s | %-30s ${GREEN}║${RESET}\n" "No."      "Model" 
-    echo -e "${GREEN}╠════════════════════════════════╣${RESET}"
+  printf "${GREEN}║${RESET} %-3s | %-30s ${GREEN}║${RESET}\n" "No."      "        Model" 
+    echo -e "${GREEN}╠══════════════════════════════════════╣${RESET}"
 
     mapfile -t lines < devices.txt
         total=${#lines[@]}  # aby podmienka pre rozsah fungovala správne
@@ -284,11 +284,11 @@ else
 fi
 device_name="${MODEL_NAMES[$clean_model]:-Unknown}"
 
-printf "${GREEN}║${RESET} ${RED}%-3s${RESET} | ${GREEN}%-30s${RESET} ${GREEN}║${RESET}\n" "$index" "$device_name" 
+printf "${GREEN}║${RESET} ${BLUE}%-3s${RESET} | ${GREEN}%-30s${RESET} ${GREEN}║${RESET}\n" "$index" "$device_name" 
     done
 
     
-  echo -e "${GREEN}╚═══════════════════════════════════╝${RESET}"
+  echo -e "${GREEN}╚══════════════════════════════════════╝${RESET}"
 
   read -p "🔢 Select device number: " selected
 
