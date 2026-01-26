@@ -73,15 +73,15 @@ resolve_zip() {
 }
 
 clear
-echo -e "${GREEN}╔════════════════════════════════════╗${RESET}"
+echo -e "${GREEN}╔═════════════════════════════════════╗${RESET}"
 echo -e "${GREEN}║${RESET}${RED_BG}${WHITE}              Universal              ${RESET}${GREEN}║${RESET}"
 
-echo -e "${GREEN}║${RESET} ${YELLOW}    DownloadeR${RESET} & ${YELLOW}Resolver${RESET}         ${GREEN}║${RESET}"
+echo -e "${GREEN}║${RESET} ${YELLOW}      DownloadeR${RESET} & ${YELLOW}Resolver${RESET}         ${GREEN}║${RESET}"
 
 echo -e "${GREEN}║${RESET}    ${RED}         by${RESET} ${BLUE}Stano36 ${RESET}             ${GREEN}║${RESET}"
-echo -e "${GREEN}╠════════════════════════════════════╣${RESET}"                              
+echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"                              
 echo -e "${GREEN}║${RESET} ${YELLOW_BG}${BLACK}  realme   ${RESET}  ${GREEN_BG}${BLACK}  oppo  ${RESET}  ${RED_BG}${WHITE}  Oneplus  ${RESET}  ${GREEN}║${RESET}"
-echo -e "${GREEN}╚════════════════════════════════════╝${RESET}" 
+echo -e "${GREEN}╚═════════════════════════════════════╝${RESET}" 
 
 
 while true; do
