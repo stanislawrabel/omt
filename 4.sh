@@ -80,7 +80,7 @@ echo -e "${GREEN}║${RESET} ${YELLOW}      DownloadeR${RESET} & ${YELLOW}Resolv
 
 echo -e "${GREEN}║${RESET}    ${RED}         by${RESET} ${BLUE}Stano36 ${RESET}             ${GREEN}║${RESET}"
 echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"                              
-echo -e "${GREEN}║${RESET} ${YELLOW_BG}${BLACK}  realme   ${RESET}  ${GREEN_BG}${BLACK}  oppo  ${RESET}  ${RED_BG}${WHITE}  Oneplus  ${RESET}  ${GREEN}║${RESET}"
+echo -e "${GREEN}║${RESET} ${YELLOW_BG}${BLACK}  realme   ${RESET}  ${GREEN_BG}${BLACK}  oppo   ${RESET}  ${RED_BG}${WHITE}  Oneplus  ${RESET}  ${GREEN}║${RESET}"
 echo -e "${GREEN}╚═════════════════════════════════════╝${RESET}" 
 
 
@@ -90,7 +90,6 @@ while true; do
   [[ -z "$INPUT" ]] && continue
 
   URL=$(clean_url "$INPUT")
-
     # === 🧠 RESOLVE IF downloadCheck ===
   if [[ "$URL" == *"downloadCheck"* ]]; then
     echo -e "${YELLOW}🔄 Resolving OTA link...${RESET}"
