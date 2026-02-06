@@ -25,7 +25,7 @@ pip3 install --upgrade requests pycryptodome git+https://github.com/R0rt1z2/real
 echo "📥 Downloading scripts and data files..."
 REPO="https://raw.githubusercontent.com/stanislawrabel/omt/main"
 
-for file in m.sh 1.sh 2.sh 3.sh 4.sh models.txt devices.txt; do
+for file in m.sh 1.sh 2.sh 3.sh 4.sh edl_finder.py models.txt devices.txt; do
     echo "➡️  $file"
     http_code=$(curl -L -w "%{http_code}" -o "$file" "$REPO/$file")
 
@@ -37,6 +37,6 @@ for file in m.sh 1.sh 2.sh 3.sh 4.sh models.txt devices.txt; do
 done
 
 echo "✅ All files downloaded successfully"
-chmod +x m.sh 1.sh 2.sh 3.sh 4.sh 
+chmod +x m.sh 1.sh 2.sh 3.sh 4.sh edl_finder.py
 echo "alias m='bash ~/m.sh'" >> ~/.bashrc
 source ~/.bashrc
