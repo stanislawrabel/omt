@@ -72,10 +72,11 @@ while true; do
       read -p "Press ENTER to return to menu..."
       ;;
     5)
-     clear
-     python "$SCRIPT_DIR/edl_finder.py"
-     exit 0
-    ;;
+      clear
+      python "$SCRIPT_DIR/edl_finder.py"
+      echo
+      read -p "Press ENTER to return to menu..."
+;;
     6)
       clear
       source "$SCRIPT_DIR/faq.sh"
