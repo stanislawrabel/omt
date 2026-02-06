@@ -15,7 +15,8 @@ yes "" | pkg update -y
 yes "" | pkg upgrade -y
 
 echo "📦 Installing required packages..."
-pkg install tmux -y
+pkg install aria2 -y
+pip install aiohttp 
 pkg install -y python python2 git tsu curl
 pip install wheel
 pip install pycryptodome
