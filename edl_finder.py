@@ -3,6 +3,7 @@ import asyncio
 import aiohttp
 import re
 import os
+pip install aiohttp
 
 OTA_COMMON = "/storage/emulated/0/Download/DownloadeR/ota_common.txt"
 OUTPUT_FILE = "valid_links.txt"
