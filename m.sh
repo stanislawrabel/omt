@@ -37,7 +37,8 @@ while true; do
   echo -e "${GREEN}║${RESET} 1) OTA FindeR                      ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 2) Share OTA links                 ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 3) DownloadeR                      ${GREEN}║${RESET}"
-  echo -e "${GREEN}║${RESET} 4) Universal DownloadeR & Resolver ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} 4) Universal DownloadeR & ResolveR ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} 5) EDL FindeR                      ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 0) Exit                            ${GREEN}║${RESET}"
   echo -e "${GREEN}╚════════════════════════════════════╝${RESET}"
 
@@ -66,6 +67,12 @@ while true; do
     4)
       clear
       source "$SCRIPT_DIR/4.sh"
+      echo
+      read -p "Press ENTER to return to menu..."
+      ;;
+   5)
+      clear
+      source "$SCRIPT_DIR/5.py"
       echo
       read -p "Press ENTER to return to menu..."
       ;;
