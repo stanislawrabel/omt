@@ -52,17 +52,23 @@ DATE = OTA.split("_")[-1]
 
 BASE_URL = f"https://{SERVER}/sw/{MODEL}{BUCKET}_11_{VERSION_CLEAN}_{DATE}"
 
-print("\n===== EDL FindeR =====")
-print(f"Model:        {MODEL}")
-print(f"Region:       {REGION}")
-print(f"Bucket:       {BUCKET}")
-print(f"Server:       {SERVER}")
-print(f"VersionName:  {VERSION_NAME}")
-print(f"Date:         {DATE}")
+  echo -e "${GREEN}╔════════════════════════════════════╗${RESET}"
+  echo -e "${GREEN}║${RESET}           Realme              ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET}         EDL FindeR            ${GREEN}║${RESET}"
+  echo -e "${GREEN}╠════════════════════════════════════╣${RESET}"
+  echo -e "${GREEN}║${RESET} (f"Model:        {MODEL}")         ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} (f"Region:       {REGION}")        ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} (f"Bucket:       {BUCKET}")        ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} (f"Server:       {SERVER}")        ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} (f"versionName:  {VERSION_NAME}")  ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} (f"Date:         {DATE}")          ${GREEN}║${RESET}"
+  echo -e "${GREEN}╚════════════════════════════════════╝${RESET}"
+
 print("\n🔗 Base URL:")
 print(BASE_URL)
 
 input("\n▶ Start EDL search? [ENTER]")
+
 
 # ---------- ASYNC CHECK ----------
 sem = asyncio.Semaphore(CONCURRENT)
