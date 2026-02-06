@@ -192,10 +192,10 @@ OUT="/storage/emulated/0/Download/DownloadeR/ota_common.txt"
 mkdir -p "$(dirname "$OUT")"
 
 cat > "$OUT" <<EOF
-MODEL=$device_model
+MODEL=$clean_model
 REGION=$region_data
 OTA=$ota_version_full
-versionName="$versionName"
+VERSION_NAME="$versionName"
 ANDROID="$android_version"
 OS="$os_version"
 PATCH=$security_os
