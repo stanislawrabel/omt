@@ -71,12 +71,18 @@ while true; do
       read -p "Press ENTER to return to menu..."
       ;;
    5)
-      clear
-      source "$SCRIPT_DIR/5.py"
-      echo
-      read -p "Press ENTER to return to menu..."
-      ;;
-    0)
+  clear
+  if [[ ! -f ota_common.txt ]]; then
+    echo "❌ ota_common.txt not found. Run OTA FindeR first."
+    read -p "Press ENTER..."
+    break
+  fi
+
+  python edl_finder.py
+  echo
+  read -p "Press ENTER to return to menu..."
+  ;;
+   0)
       clear
       echo "Bye 👋"
       exit 0
