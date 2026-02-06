@@ -52,7 +52,7 @@ DATE = OTA.split("_")[-1]
 
 BASE_URL = f"https://{SERVER}/sw/{MODEL}{BUCKET}_11_{VERSION_CLEAN}_{DATE}"
 
-  print("\n===== EDL FindeR =====")
+print("\n===== EDL FindeR =====")
 print(f"Model:        {MODEL}")
 print(f"Region:       {REGION}")
 print(f"Bucket:       {BUCKET}")
