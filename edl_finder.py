@@ -3,7 +3,7 @@ import asyncio
 import aiohttp
 import re
 import os
-echo "👉 Run: pip install aiohttp -y"
+
 OTA_COMMON = "/storage/emulated/0/Download/DownloadeR/ota_common.txt"
 OUTPUT_FILE = "edl_link.txt"
 
