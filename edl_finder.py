@@ -61,7 +61,7 @@ print(f"Bucket:       {BUCKET}")
 print(f"Server:       {SERVER}")
 print(f"VersionName:  {VERSION_NAME}")
 print(f"Date:         {DATE}")
-⁵⅚print("\n🔗 Base URL:")
+print("\n🔗 Base URL:")
 print(BASE_URL)
 
 input("\n▶ Start EDL search? [ENTER]")
