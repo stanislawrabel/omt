@@ -85,4 +85,13 @@ else
 fi
 
 echo "✅ Done: $FINAL_PATH"
+echo
+echo "✅ Download finished"
+
+termux-notification \
+  --title "OTA Multi Tools" \
+  --content "Download completed ✔️"
+
+echo
+read -n1 -p "Press any key to close..."
 return 0
