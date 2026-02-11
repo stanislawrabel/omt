@@ -5,14 +5,17 @@ import re
 import os
 
 OTA_COMMON = "/storage/emulated/0/Download/DownloadeR/ota_common.txt"
-OUTPUT_FILE = "valid_links.txt"
-
+OUTPUT_FILE = "edl_link.txt"
 
 CONCURRENT = 40
 TIMEOUT = aiohttp.ClientTimeout(total=10)
 
 # ---------- LOAD ota_common.txt ----------
 def load_common():
+    if not os.path.exists(OTA_COMMON):
+        print(f"❌ {OTA_COMMON} not found. Run OTA FindeR first.")
+        return None
+
     data = {}
     with open(OTA_COMMON, "r") as f:
         for line in f:
@@ -22,6 +25,8 @@ def load_common():
     return data
 
 data = load_common()
+if not data:
+    exit(1)
 
 MODEL = data["MODEL"]
 REGION = data["REGION"]
@@ -29,21 +34,17 @@ VERSION_NAME = data["VERSION_NAME"]
 OTA = data["OTA"]
 
 # ---------- REGION → BUCKET & SERVER ----------
-
 if REGION in ("EU", "EUEX", "EEA", "TR"):
     BUCKET = "GDPR"
     SERVER = "rms01.realme.net"
-
 elif REGION in ("CN", "CH"):
     BUCKET = "domestic"
     SERVER = "rms11.realme.net"
-
 else:
     BUCKET = "export"
     SERVER = "rms01.realme.net"
 
 # ---------- VERSION CLEAN ----------
-# RMX3921_15.0.0.1401(EX01) → 15.0.0.1401EX01
 VERSION_CLEAN = re.sub(r"^RMX\d+_", "", VERSION_NAME)
 VERSION_CLEAN = VERSION_CLEAN.replace("(", "").replace(")", "")
 
@@ -52,6 +53,7 @@ DATE = OTA.split("_")[-1]
 
 BASE_URL = f"https://{SERVER}/sw/{MODEL}{BUCKET}_11_{VERSION_CLEAN}_{DATE}"
 
+# ---------- HEADER ----------
 print("\n===== EDL FindeR =====")
 print(f"Model:        {MODEL}")
 print(f"Region:       {REGION}")
@@ -59,34 +61,51 @@ print(f"Bucket:       {BUCKET}")
 print(f"Server:       {SERVER}")
 print(f"VersionName:  {VERSION_NAME}")
 print(f"Date:         {DATE}")
-
-print("\n🔗 Base URL:")
+⁵⅚print("\n🔗 Base URL:")
 print(BASE_URL)
 
 input("\n▶ Start EDL search? [ENTER]")
 
+print("\n🔍 Searching for EDL package, please wait...\n")
 
 # ---------- ASYNC CHECK ----------
 sem = asyncio.Semaphore(CONCURRENT)
+found_event = asyncio.Event()  # Signál pre prvý nájdený odkaz
 
 async def check(session, num):
     url = f"{BASE_URL}{num:04d}.zip"
     async with sem:
         try:
             async with session.head(url) as r:
-                if r.status == 200:
-                    print(f"✅ FOUND: {url}")
-                    with open(OUTPUT_FILE, "a") as f:
+                if r.status == 200 and not found_event.is_set():
+                    print(f"✅ EDL package found: {url}")
+                    with open(OUTPUT_FILE, "w") as f:
                         f.write(url + "\n")
+                    found_event.set()  # stop ostatné úlohy
         except:
             pass
 
 async def main():
     async with aiohttp.ClientSession(timeout=TIMEOUT) as session:
-        tasks = [check(session, i) for i in range(10000)]
-        await asyncio.gather(*tasks)
+        tasks = [asyncio.create_task(check(session, i)) for i in range(10000)]
+        for coro in asyncio.as_completed(tasks):
+            await coro
+            if found_event.is_set():
+                # cancel remaining tasks
+                for t in tasks:
+                    if not t.done():
+                        t.cancel()
+                break
 
 asyncio.run(main())
 
-print("\n✔ EDL search finished")
-print(f"📄 Results saved to {OUTPUT_FILE}")
+# ---------- FINISH ----------
+if not os.path.exists(OUTPUT_FILE):
+    print("❌ EDL package not found or not available")
+else:
+    print("\n✔ EDL search finished")
+    print(f"📄 Result saved to {OUTPUT_FILE}")
+
+# čakáme na stlačenie Enter pred návratom do menu
+input("\nPress ENTER to return to menu...")
+
