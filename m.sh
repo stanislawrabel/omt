@@ -38,7 +38,7 @@ while true; do
   echo -e "${GREEN}║${RESET} 2) Share OTA links                 ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 3) DownloadeR                      ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 4) Universal DownloadeR & ResolveR ${GREEN}║${RESET}"
-  echo -e "${GREEN}║${RESET} 5) EDL FindeR   (Realme)           ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} 5) EDL FindeR for Realme           ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 6) FaQ                             ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 0) Exit                            ${GREEN}║${RESET}"
   echo -e "${GREEN}╚════════════════════════════════════╝${RESET}"
