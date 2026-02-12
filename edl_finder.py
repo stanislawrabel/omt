@@ -4,15 +4,15 @@ import aiohttp
 import re
 import os
 
-echo "🔧 Checking dependencies..."
+print("🔧 Checking dependencies...")
 
 # === Python aiohttp ===
 if ! python3 -c "import aiohttp" &> /dev/null; then
-    echo "📥 Installing aiohttp..."
+    print("📥 Installing aiohttp...")
     pip install --upgrade pip
     pip install aiohttp
 fi
-echo "✅ All dependencies are ready!"
+print("✅ All dependencies are ready!")
 sleep 1
 clear
 
