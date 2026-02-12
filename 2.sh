@@ -310,7 +310,7 @@ done
 while true; do
     echo -e "\n🔄 1 - Change OTA version"
     echo -e "🔄 2 - Change device model"
-    echo -e "❌ 3 - End script"
+    echo -e "↩️ 3 - Back to menu"
     echo
 
     read -p "💡 Select an option (1/2/3): " option
@@ -335,13 +335,12 @@ while true; do
             exit 0
             ;;
         3)
-            echo -e "👋 Goodbye."
-            exit 0
-            ;;
+          echo "↩ Returning to main menu..."
+          sleep 1
+          return
+          ;;
         *)
             echo -e "${RED}❌ Invalid option.${RESET}"
             ;;
     esac
 done
-read -p "Press ENTER to return to menu..."
-return 0
