@@ -432,7 +432,7 @@ run_ota
 while true; do
     echo -e "\n🔄 1 - Change OTA version"
     echo -e "🔄 2 - Change device model"
-    echo -e "❌ 3 - End script"
+    echo -e "↩️ 3 - Back to menu"
     echo
 
     read -p "💡 Select an option (1/2/3): " option
