@@ -457,13 +457,13 @@ while true; do
             exit 0
             ;;
         3)
-            echo -e "👋 Goodbye."
-            exit 0
+            echo "↩ Returning to main menu..."
+            sleep 1
+            return
             ;;
         *)
             echo -e "${RED}❌ Invalid option.${RESET}"
             ;;
     esac
 done
-read -p "Press ENTER to return to menu..."
-return 0
+
