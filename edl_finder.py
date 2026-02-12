@@ -4,6 +4,18 @@ import aiohttp
 import re
 import os
 
+echo "🔧 Checking dependencies..."
+
+# === Python aiohttp ===
+if ! python3 -c "import aiohttp" &> /dev/null; then
+    echo "📥 Installing aiohttp..."
+    pip install --upgrade pip
+    pip install aiohttp
+fi
+echo "✅ All dependencies are ready!"
+sleep 1
+clear
+
 OTA_COMMON = "/storage/emulated/0/Download/DownloadeR/ota_common.txt"
 OUTPUT_FILE = "edl_link.txt"
 
