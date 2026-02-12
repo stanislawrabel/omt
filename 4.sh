@@ -5,11 +5,7 @@ echo "========= DownloadeR & Resolver ========"
 APP_NAME="OTA Multi Tools"
 APP_VERSION="1.1.0"
 APP_AUTHOR="Stano36"
-cleanup() {
-    echo
-    echo "🔙 Returning to menu..."
-}
-trap cleanup EXIT INT
+
 # 🎨 Colors 
 WHITE="\033[37m"
 PURPLE="\033[35m" 
@@ -112,29 +108,72 @@ while true; do
     echo -e "${RED}❌ Link invalid (HTTP $STATUS)${RESET}"
     continue
   fi
-  FILENAME=$(basename "${URL%%\?*}")
-  read -rp "💾 File name [$FILENAME]: " CUSTOM
-  FILENAME="${CUSTOM:-$FILENAME}"
+  # === 📦 FILE NAME ===
+FILENAME=$(basename "${URL%%\?*}")
+read -rp "💾 File name [$FILENAME]: " CUSTOM
+FILENAME="${CUSTOM:-$FILENAME}"
 
-  echo -e "${BLUE}📥 Downloading...${RESET}"
+echo
+echo "========================================"
+echo "📦 File: $FILENAME"
+echo "📂 Folder: $DOWNLOAD_DIR"
+echo "========================================"
+echo
 
-  aria2c -c -x16 -s16 \
-    --user-agent="Dalvik/2.1.0 (Linux; Android 13)" \
-    --referer="https://4pda.to/" \
-    -d "$DOWNLOAD_DIR" \
-    -o "$FILENAME" \
-    "$URL"
+echo "📥 Starting download..."
+sleep 0.5
 
-  if [[ $? -eq 0 ]]; then
-    echo -e "${GREEN}✅ Done${RESET}"
-    echo "[$(date)] OK | $FILENAME" >> "$LOG_FILE"
-  else
-    echo -e "${RED}❌ Download failed${RESET}"
-  fi
+# === 📥 DOWNLOAD ===
+aria2c -c -x16 -s16 \
+  --summary-interval=1 \
+  --console-log-level=notice \
+  --show-console-readout=true \
+  --human-readable=true \
+  --download-result=full \
+  --user-agent="Dalvik/2.1.0 (Linux; Android 13)" \
+  --referer="https://4pda.to/" \
+  -d "$DOWNLOAD_DIR" \
+  -o "$FILENAME" \
+  "$URL"
 
-  echo
-  echo "1️⃣ Again"
-  echo "0️⃣ Exit"
-  read -rp "➡️ " C
-  [[ "$C" == "0" ]] && break
+RESULT=$?
+
+echo
+
+# === ✅ SUCCESS ===
+if [[ $RESULT -eq 0 ]]; then
+  echo "✅ Download completed successfully"
+
+  echo "[$(date)] OK | $FILENAME" >> "$LOG_FILE"
+
+  # Android notification
+  termux-notification \
+    --title "Universal DownloadeR" \
+    --content "Download completed: $FILENAME"
+
+  termux-toast "✅ Download completed"
+
+# === ❌ FAILED ===
+else
+  echo "❌ Download failed"
+  echo "[$(date)] FAIL | $FILENAME" >> "$LOG_FILE"
+
+  termux-notification \
+    --title "Universal DownloadeR" \
+    --content "Download failed: $FILENAME"
+fi
+
+echo
+echo "----------------------------------------"
+echo "1) New download"
+echo "0) Exit"
+echo "----------------------------------------"
+
+read -rp "Select option: " CHOICE
+
+if [[ "$CHOICE" == "0" ]]; then
+  echo "👋 Exiting Universal DownloadeR"
+  clear
+  exit 0
+fi
 done  
