@@ -22,12 +22,21 @@ RESET="\033[0m"
 
 
 
-# === 🧠 CHECK ARIA2 ===
-if ! command -v aria2c &>/dev/null; then
-  echo -e "${RED}❌ aria2c not installed .${RESET}"
-  echo "👉 Run: pkg install aria2 -y"
-  exit 1
+echo "🔧 Checking dependencies..."
+
+# === Aria2 ===
+if ! command -v aria2c &> /dev/null; then
+    echo "📥 Installing aria2..."
+    pkg install aria2 -y
 fi
+# === Termux API ===
+if ! command -v termux-notification &> /dev/null; then
+    echo "📥 Installing Termux API..."
+    pkg install termux-api -y
+fi
+echo "✅ All dependencies are ready!"
+sleep 1
+clear
 
 DOWNLOAD_DIR="/storage/emulated/0/Download/DownloadeR"
 LOG_FILE="$DOWNLOAD_DIR/ota_downloads.log"
