@@ -20,13 +20,21 @@ fi
 
 source "$COMMON_FILE"
 
-# === 🧠 CHECK ARIA2 ===
-if ! command -v aria2c &>/dev/null; then
-  echo -e "${RED}❌ aria2c not installed .${RESET}"
-  echo "👉 Run: pkg install aria2 -y"
-  exit 1
-fi
+echo "🔧 Checking dependencies..."
 
+# === Aria2 ===
+if ! command -v aria2c &> /dev/null; then
+    echo "📥 Installing aria2..."
+    pkg install aria2 -y
+fi
+# === Termux API ===
+if ! command -v termux-notification &> /dev/null; then
+    echo "📥 Installing Termux API..."
+    pkg install termux-api -y
+fi
+echo "✅ All dependencies are ready!"
+sleep 1
+clear
 FINAL_URL="$DOWNLOAD"
 
 if [[ ! "$FINAL_URL" =~ ^https?:// ]]; then
