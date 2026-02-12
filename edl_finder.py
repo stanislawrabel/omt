@@ -3,18 +3,20 @@ import asyncio
 import aiohttp
 import re
 import os
+import subprocess
+import sys
 
 print("🔧 Checking dependencies...")
 
-# === Python aiohttp ===
-if ! python3 -c "import aiohttp" &> /dev/null; then
+try:
+    import aiohttp
+    print("✅ aiohttp is already installed")
+except ImportError:
     print("📥 Installing aiohttp...")
-    pip install --upgrade pip
-    pip install aiohttp
-fi
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"])
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "aiohttp"])
+
 print("✅ All dependencies are ready!")
-sleep 1
-clear
 
 OTA_COMMON = "/storage/emulated/0/Download/DownloadeR/ota_common.txt"
 OUTPUT_FILE = "edl_link.txt"
