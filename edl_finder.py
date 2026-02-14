@@ -5,6 +5,7 @@ import re
 import os
 import subprocess
 import sys
+import time
 
 print("🔧 Checking dependencies...")
 
@@ -17,6 +18,8 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "aiohttp"])
 
 print("✅ All dependencies are ready!")
+time.sleep(1)
+os.system("clear")
 
 OTA_COMMON = "/storage/emulated/0/Download/DownloadeR/ota_common.txt"
 OUTPUT_FILE = "edl_link.txt"
