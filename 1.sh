@@ -48,7 +48,7 @@ declare -A REGIONS=(
     [44]="EUEX Europe 01000100"
     [5A]="KZ Kazakhstan 01011010"
     [51]="TR Turkey 01010001"
-    [60]="LK Srí_Lanka 01100000"
+    [60]="LK Srí_Lanka  01100000"
     [7B]="MX Mexico 01111011" 
     [75]="EG Egypt 01110101" 
     [8D]="EU-NO Europe_Non_GDPR 10001101"
@@ -261,7 +261,8 @@ echo -e "${GREEN}╠════════════════════
 echo -e "${GREEN}║  ${RESET}" "OTA version : ${BLUE}A${RESET} , ${BLUE}C${RESET} , ${BLUE}F${RESET} , ${BLUE}H${RESET} , ${BLUE}J${RESET}"     "${GREEN}  ║${RESET}"
 echo -e "${GREEN}╚═════════════════════════════════════╝${RESET}"
 # Zoznam prefixov
-echo -e "Choose model:${YELLOW}1) RMX${RESET}, ${GREEN}2) CPH${RESET}, ${BLUE}3) Custom${RESET}, ${PURPLE}4) Selected${RESET}" 
+echo -e "Choose model:
+${YELLOW}1) RMX${RESET}, ${GREEN}2) CPH${RESET}, ${BLUE}3) Custom${RESET}, ${PURPLE}4) Selected${RESET}" 
 read -p " 💡 Select an option (1/2/3/4): " choice
 if [[ "$choice" == "4" ]]; then
     if [[ ! -f devices.txt ]]; then
