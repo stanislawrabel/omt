@@ -21,6 +21,8 @@ RESET="\033[0m"
 # 📌 Regióny, verzie a servery
 declare -A REGIONS=(
     [00]="EX Export 00000000"
+    [A1]="NA North_America 10100001"
+    [A3]="Tmob T-mobile 10100011"
     [A4]="APC Global 10100100"
     [A5]="OCA Oce_Cen_Australia 10100101"
     [A6]="MEA Middle_East_Africa 10100110"
@@ -56,6 +58,7 @@ declare -A VERSIONS=(
   [C]="First update" 
   [F]="Second update" 
   [H]="Third update"
+  [J]="Fourth update"
 )
 declare -A SERVERS=(
   [97]="-r 1" 
@@ -107,7 +110,7 @@ run_ota() {
   clean_model=$(echo "$device_model" | sed 's/IN\|RU\|TR\|EEA\|T2//g')
   base_model="$clean_model"
 
-  ota_command="realme-ota $server $device_model ${base_model}_11.${version}.01_0001_100001010000 6 $nv_id"
+  ota_command="realme-ota $server $device_model ${base_model}_11.${version}.01_0001_100001010000 7 $nv_id"
 #  echo -e "🔍 I run the command: ${BLUE}$ota_command${RESET}"
   output=$(eval "$ota_command")
   
@@ -241,7 +244,7 @@ done
 
 
 echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"
-echo -e "${GREEN}║  ${RESET}" "OTA version :  ${BLUE}A${RESET} ,  ${BLUE}C${RESET} ,  ${BLUE}F${RESET} ,  ${BLUE}H${RESET}"      "${GREEN}  ║${RESET}"
+echo -e "${GREEN}║  ${RESET}" "OTA version :  ${BLUE}A${RESET} , ${BLUE}C${RESET} , ${BLUE}F${RESET} , ${BLUE}H${RESET} , ${BLUE}J${RESET}"      "${GREEN}  ║${RESET}"
 echo -e "${GREEN}╚═════════════════════════════════════╝${RESET}"
   # 📦 Výber prefixu
 echo -e "📦 Model: ${YELLOW}1) RMX${RESET},  ${GREEN}2) CPH${RESET},  ${BLUE}3) Custom${RESET}"
@@ -319,7 +322,7 @@ while true; do
     case "$option" in
         1)
             echo
-            read -p "🧩 Enter OTA version (A/C/F/H): " version
+            read -p "🧩 Enter OTA version (A/C/F/H/J): " version
             version=$(echo "$version" | tr '[:lower:]' '[:upper:]')  # prevod na veľké písmená
 
             if [[ -z "$version" || ! "$version" =~ ^[ACFH]$ ]]; then
