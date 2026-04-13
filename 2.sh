@@ -244,7 +244,7 @@ done
 
 
 echo -e "${GREEN}╠═════════════════════════════════════╣${RESET}"
-echo -e "${GREEN}║  ${RESET}"  "OTA version :  ${BLUE}A${RESET} , ${BLUE}C${RESET} , ${BLUE}F${RESET} , ${BLUE}H${RESET} , ${BLUE}J${RESET}"      "${GREEN}  ║${RESET}"
+echo -e "${GREEN}║  ${RESET}"  "OTA version : ${BLUE}A${RESET} , ${BLUE}C${RESET} , ${BLUE}F${RESET} , ${BLUE}H${RESET} , ${BLUE}J${RESET}"      "${GREEN}  ║${RESET}"
 echo -e "${GREEN}╚═════════════════════════════════════╝${RESET}"
   # 📦 Výber prefixu
 echo -e "📦 Model: ${YELLOW}1) RMX${RESET},  ${GREEN}2) CPH${RESET},  ${BLUE}3) Custom${RESET}"
