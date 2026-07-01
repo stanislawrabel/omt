@@ -39,7 +39,8 @@ while true; do
   echo -e "${GREEN}║${RESET} 3) DownloadeR                      ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 4) Universal DownloadeR & ResolveR ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 5) EDL FindeR for Realme           ${GREEN}║${RESET}"
-  echo -e "${GREEN}║${RESET} 6) FaQ                             ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} 6) ARB ScanneR                     ${GREEN}║${RESET}"
+  echo -e "${GREEN}║${RESET} 7) FaQ                             ${GREEN}║${RESET}"
   echo -e "${GREEN}║${RESET} 0) Exit                            ${GREEN}║${RESET}"
   echo -e "${GREEN}╚════════════════════════════════════╝${RESET}"
 
@@ -76,8 +77,14 @@ while true; do
       python "$SCRIPT_DIR/edl_finder.py"
       echo
       read -p "Press ENTER to return to menu..."
-;;
+      ;;
     6)
+      clear
+      source "$SCRIPT_DIR/arb.sh"
+      echo
+      read -p "Press ENTER to return to menu..."
+      ;;
+    7)
       clear
       source "$SCRIPT_DIR/faq.sh"
       echo
