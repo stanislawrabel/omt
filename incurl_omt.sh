@@ -26,6 +26,7 @@ echo
 echo "📦 Installing Rust..."
 pkg install rust -y
 
+
 echo
 echo "📦 Installing otaripper..."
 
