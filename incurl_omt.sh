@@ -22,12 +22,41 @@ pip install wheel
 pip install pycryptodome
 pip3 install --upgrade requests pycryptodome git+https://github.com/R0rt1z2/realme-ota
 pip install aiohttp
+echo
+echo "📦 Installing Rust..."
+pkg install rust -y
+
+echo
+echo "📦 Installing otaripper..."
+
+cd "$HOME" || exit
+
+rm -rf otaripper
+
+git clone https://github.com/syedinsaf/otaripper.git
+
+cd otaripper || exit
+
+cargo build --release
+
+install -Dm755 target/release/otaripper \
+    "$PREFIX/bin/otaripper"
+
+cd "$HOME"
+
+echo "✅ otaripper installed"
+
+if command -v otaripper >/dev/null 2>&1; then
+    echo "✅ otaripper: $(otaripper --version 2>/dev/null || echo Installed)"
+else
+    echo "❌ otaripper installation failed"
+fi66
 
 # 🔹 SCRIPTS & FILES
 echo "📥 Downloading scripts and data files..."
 REPO="https://raw.githubusercontent.com/stanislawrabel/omt/main"
 
-for file in m.sh 1.sh 2.sh 3.sh 4.sh edl_finder.py faq.sh models.txt devices.txt; do
+for file in m.sh 1.sh 2.sh 3.sh 4.sh edl_finder.py arb.sh faq.sh models.txt devices.txt; do
     echo "➡️  $file"
     http_code=$(curl -L -w "%{http_code}" -o "$file" "$REPO/$file")
 
@@ -39,6 +68,6 @@ for file in m.sh 1.sh 2.sh 3.sh 4.sh edl_finder.py faq.sh models.txt devices.txt
 done
 
 echo "✅ All files downloaded successfully"
-chmod +x m.sh 1.sh 2.sh 3.sh 4.sh edl_finder.py faq.sh
+chmod +x m.sh 1.sh 2.sh 3.sh 4.sh edl_finder.py arb.sh faq.sh
 echo "alias m='bash ~/m.sh'" >> ~/.bashrc
 source ~/.bashrc
