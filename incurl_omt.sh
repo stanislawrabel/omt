@@ -50,7 +50,7 @@ if command -v otaripper >/dev/null 2>&1; then
     echo "✅ otaripper: $(otaripper --version 2>/dev/null || echo Installed)"
 else
     echo "❌ otaripper installation failed"
-fi66
+fi
 
 # 🔹 SCRIPTS & FILES
 echo "📥 Downloading scripts and data files..."
